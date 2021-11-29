@@ -1,0 +1,59 @@
+.mat-toolbar {
+    background: #41ade7;
+    height: 108px;
+    padding: 15px;
+
+  }
+
+
+  .mat-icon{
+    position: relative;
+    top: 0px; left: 1100px;
+  }
+
+.item5 {
+    background: #666666;
+    height: 70px;
+    padding: 30px;
+    
+  }
+
+  .item3 img{
+    width:100%;
+    height:100%;
+  }
+
+.item5 img{
+    height: 70px;
+  }
+
+ 
+
+  .item5 p{
+    text-align: center;
+    position: relative;
+    top: -75px; left: 0px;
+  }
+
+  .item1 {
+    text-align: center;
+  }
+
+.imageAcredi{
+    position: relative;
+    top: 0px; left: 1300px;
+}
+  
+
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'main main main main main main'
+      'footer footer footer footer footer footer';
+  
+    background-color: #e6e6e6;
+
+    
+  }

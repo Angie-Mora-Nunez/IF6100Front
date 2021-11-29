@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item3 { grid-area: main; }
+.item5 { grid-area: footer; }
+
+
+
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="item1">
+
+    <p>
+      <mat-toolbar >
+        <mat-toolbar-row>
+
+          
+          <img height="130px" src="./assets/logo1.png" >
+          <img height="60px" src="./assets/IE.png" >
+
+
+            <mat-icon  >accessible</mat-icon>
+            <mat-icon>language</mat-icon>
+            <mat-icon>account_box</mat-icon>
+     
+        </mat-toolbar-row>
+    
+
+      </mat-toolbar>
+    </p>
+
+  
+<!--button mat-button>General</button-->
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="General">
+    <div class="item3">
+      <div id="responsive-form" class="clearfix">
+  
+        <div class="form-row">
+        <div class="column-half">
+  
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="tim-icons icon-lock-circle"> </i>
+              </div>
+            </div>
+            <mat-form-field class="input-size" appearance="outline">
+              <mat-label>Sigla</mat-label>
+              <input [(ngModel)]="courseData.sigla" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Nombre</mat-label>
+              <input [(ngModel)]="courseData.nombre" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Área disciplinaria</mat-label>
+              <mat-select [(ngModel)]="courseData.areaDisciplinaria">
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Ciclo</mat-label>
+              <mat-select [(ngModel)]="courseData.ciclo" >
+                <mat-option value="one">I Ciclo</mat-option>
+                <mat-option value="two">II Ciclo</mat-option>
+                <mat-option value="two">III Ciclo</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Créditos</mat-label>
+              <mat-select [(ngModel)]="courseData.creditos">
+                <mat-option value="one">1</mat-option>
+                <mat-option value="two">2</mat-option>
+                <mat-option value="three">3</mat-option>
+                <mat-option value="four">4</mat-option>
+                <mat-option value="five">5</mat-option>
+                <mat-option value="six">6</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+  
+        </div>
+  
+        <div class="column-half">
+          
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="tim-icons icon-lock-circle"> </i>
+              </div>
+            </div>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Unidad(es) académica(s)</mat-label>
+              <mat-select  multiple>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+                <mat-option value="one">Third option</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <mat-form-field class="input-size" appearance="outline">
+            <mat-label>Horas teoría</mat-label>
+            <input type="number" [(ngModel)]="courseData.horasTeoria" matInput>
+          </mat-form-field>
+          <mat-form-field class="input-size" appearance="outline">
+            <mat-label>Horas práctica</mat-label>
+            <input type="number" [(ngModel)]="courseData.horasPractica" matInput>
+          </mat-form-field>
+          <mat-form-field class="input-size" appearance="outline">
+            <mat-label>Horas teórico-practicas</mat-label>
+            <input type="number" [(ngModel)]="courseData.horasTeoricoPractica"  matInput>
+          </mat-form-field>
+          <mat-form-field class="input-size" appearance="outline">
+            <mat-label>Horas laboratorio</mat-label>
+            <input type="number" [(ngModel)]="courseData.horasLaboratorio" matInput>
+          </mat-form-field>
+          </div>
+  
+        </div>
+        </div>       
+    </div>   
+  </div>  
+  </mat-tab>
+  <mat-tab label="Requisitos">
+    <div class="item3">
+      <div id="responsive-form" class="clearfix">
+  
+        <div class="form-row">
+        <div class="column-half">
+  
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="tim-icons icon-lock-circle"> </i>
+              </div>
+            </div>
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Requisitos</mat-label>
+              <mat-select  multiple>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+                <mat-option value="one">Third option</mat-option>
+              </mat-select>
+          </mat-form-field>
+          </div>
+  
+        </div>
+  
+        <div class="column-half">
+          
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="tim-icons icon-lock-circle"> </i>
+              </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="input-size">
+              <mat-label>Co-Requisitos</mat-label>
+              <mat-select  multiple>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+                <mat-option value="one">Third option</mat-option>
+              </mat-select>
+          </mat-form-field>
+          </div>
+  
+        </div>
+        </div>       
+    </div>   
+  </div>  
+  </mat-tab>
+  <mat-tab label="Contenidos">
+    <div class="item3">
+      <div id="responsive-form" class="clearfix">
+
+        <div class="form-row">
+          <div class="column-half">
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-lock-circle"> </i>
+                </div>
+              </div>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Objetivo general:</mat-label>
+                <textarea [(ngModel)]="courseData.objetivoGeneral" matInput placeholder="Ex. this is example..."></textarea>
+              </mat-form-field>
+
+            </div>
+
+          </div>
+
+          <div class="column-half">
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-lock-circle"> </i>
+                </div>
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter Note:</mat-label>
+                <textarea matInput placeholder="Resultados de aprendizaje"></textarea>
+              </mat-form-field>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="column-half">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-lock-circle"> </i>
+                </div>
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter Note:</mat-label>
+                <textarea matInput placeholder="Contenido, subtemas"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="column-half">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-lock-circle"> </i>
+                </div>
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter Note:</mat-label>
+                <textarea matInput placeholder="Bibliografia"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-row">
+          <div class="column-half">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="tim-icons icon-lock-circle"> </i>
+                </div>
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter Note:</mat-label>
+                <textarea matInput placeholder="Curso propio"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="column-half">
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="tim-icons icon-lock-circle"> </i>
+              </div>
+            </div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter Note:</mat-label>
+              <textarea matInput placeholder="Curso propio"></textarea>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="form-row">
+          <div class="column-half"><button (Click)='addCursoC()' type="submit" class="button button1" mat-menu-item>Agregar</button>
+          </div>
+          <div class="column-half"><button class="button button2" mat-menu-item>Cancelar</button>
+          </div>
+
+
+          </div>
+
+        </div>
+      </div>
+  </mat-tab>
+</mat-tab-group>
+
+
+
+  </div>
+
+  <!--div class="item3">
+
+
+    <div id="responsive-form" class="clearfix">
+
+      <div class="form-row">
+      <div class="column-half">
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"> </i>
+            </div>
+          </div>
+          <mat-form-field class="input-size" appearance="outline">
+            <mat-label>Sigla</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Unidad(es) académica(s)</mat-label>
+            <mat-select formControlName="roles" multiple>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+              <mat-option value="one">Third option</mat-option>
+            </mat-select>
+        </mat-form-field>
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Área disciplinaria</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Ciclo</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Créditos</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="column-half">
+        
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="tim-icons icon-lock-circle"> </i>
+            </div>
+          </div>
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Nombre</mat-label>
+            <input matInput>
+          </mat-form-field>
+        <mat-form-field appearance="outline" class="input-size">
+          <mat-label>Horas teoría</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="input-size">
+          <mat-label>Horas práctica</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="input-size">
+          <mat-label>Horas teórico-practicas</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input-size">
+          <mat-label>Horas laboratorio</mat-label>
+          <mat-select>
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+
+      </div>
+      </div>
+
+      
+      <div class="form-row">
+       <div class="column-half"><button class="button button1" [routerLink]="['/requirement']" mat-menu-item >Siguiente</button>
+       </div>
+       <div class="column-half"><button class="button button2" [routerLink]="['/courses']" mat-menu-item >Regresar</button>
+       </div>
+      </div>
+      
+  </div>   
+</div-->  
+
+</div>
+
+</body>
+<footer>
+  <div class="item5"> <img  src="./assets/footerLogo.png">
+    <mat-icon>facebook</mat-icon>
+      <p>Todos los derechos reservados <br>Universidad de Costa Rica <br>Informática Empresarial</p>
+
+    </div>
+</footer>
+</html>

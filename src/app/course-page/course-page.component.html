@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item3 { grid-area: main; }
+.item5 { grid-area: footer; }
+
+
+
+</style>
+</head>
+<body>
+
+
+  <div class="item1">
+
+    <p>
+      <mat-toolbar >
+        <mat-toolbar-row>
+
+          
+          <img height="130px" src="./assets/logo1.png" >
+          <img height="60px" src="./assets/IE.png" >
+
+
+            <mat-icon  >accessible</mat-icon>
+            <mat-icon>language</mat-icon>
+            <mat-icon>account_box</mat-icon>
+     
+        </mat-toolbar-row>
+    
+
+      </mat-toolbar>
+    </p>
+
+  
+<button mat-button [matMenuTriggerFor]="aboveMenu">Plan de estudios</button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item>Curso</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Personal docente</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item>xxxxxx</button>
+  <button mat-menu-item>xxxxxxxxx</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">Noticias</button>
+<mat-menu #beforeMenu="matMenu" yPosition="below">
+  <button mat-menu-item>xxxxxx</button>
+  <button mat-menu-item>xxxxxxxxxxx</button>
+</mat-menu>
+</div>
+<hr class ="short">
+<hr class ="short">
+
+
+
+<div classs="courses-print">
+<div class="container">
+<div class="contenedor-anno">
+<div class="titular-bloques-mb">I año</div>
+<div class="anno">
+<div class="texto-vertical">I semestre</div>
+<div class="texto-horizontal">I semestre</div>
+<div class= "semestre">
+<div class="curso generales" style="cursor: pointer;">
+<div class="sigla">EG-</div>
+<div class="nombre">
+<a>Curso de arte</a>
+</div>
+<div class="creditos">2</div>
+</div>
+<div class="curso generales" style="cursor: pointer;">
+<div class="sigla">EG-1</div>
+<div class="nombre">
+<a target="_blank">Curso Integrado de Humanidades I</a>
+</div>
+<div class="creditos">6</div>
+</div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF1300</div>
+  <div class="nombre">
+  <a target="_blank">Introducción a la Computación e Informática</a>
+  </div>
+  <div class="creditos">4</div>
+  </div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF1400</div>
+  <div class="nombre">
+  <a target="_blank">Lógica para Informáticos</a>
+  </div>
+  <div class="creditos">2</div>
+  </div>
+
+<div class="curso servicio" style="cursor: pointer;">
+  <div class="sigla">LM1030</div>
+  <div class="nombre">
+  <a target="_blank">Estrategias de Lectura en Inglés I</a>
+  </div>
+  <div class="creditos">4</div>
+  </div>
+
+  <div>
+    <button  [routerLink]="['/general']" class= "wrapper"  >Agregar electivas</button></div>
+
+</div> <!--semestre-->
+
+<!--Segundo semestre-->
+  <div class="anno">
+<div class="texto-horizontal">II semestre</div>
+<div class= "semestre">
+<div class="curso generales" style="cursor: pointer;">
+<div class="sigla">EF-</div>
+<div class="nombre">
+<a>Actividad Deportiva</a>
+</div>
+<div class="creditos">0</div>
+</div>
+<div class="curso generales" style="cursor: pointer;">
+<div class="sigla">EG-II</div>
+<div class="nombre">
+<a target="_blank">Curso Integrado de Generales II</a>
+</div>
+<div class="creditos">4</div>
+<div class="requisitos">
+<br>"EG-I"
+</div>
+</div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF2000</div>
+  <div class="nombre">
+  <a target="_blank">Programacion I</a>
+  </div>
+  <div class="creditos">4</div>
+ <div class="requisitos">
+    <br>"IF1300"
+    </div>
+  </div>
+ 
+<div class="curso servicio" style="cursor: pointer;">
+  <div class="sigla">LM1032</div>
+  <div class="nombre">
+  <a target="_blank">Estrategia de lectura de Ingles II</a>
+  </div>
+  <div class="creditos">4</div>
+ <div class="requisitos">
+    <br>"LM1030"
+    </div>
+  </div>
+
+<div class="curso matematica" style="cursor: pointer;">
+  <div class="sigla">MA0320</div>
+  <div class="nombre">
+  <a target="_blank">Estructuras Matemáticas Discretas</a>
+  </div>
+  <div class="creditos">4</div>
+ 
+  </div>
+  <div><button  [routerLink]="['/general']" class= "wrapper">Agregar electivas</button></div>
+</div> <!--IIsemestre-->
+</div><!--año-->
+</div><!--contenedor-->
+<hr class ="short">
+</div>
+</div>
+<hr class ="short">
+
+<!--II año-->
+<div class="contenedor-anno">
+  <div class="titular-bloques-mb">II año</div>
+<div class="anno">
+<div class="texto-horizontal">I semestre</div>
+<div class= "semestre">
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF3000</div>
+<div class="nombre">
+<a>Programación II</a>
+</div>
+<div class="creditos">4</div>
+<div class="requisitos">
+    <br>"IF2000"
+    </div>
+<div class="correquisitos">
+    <br>"IF3001"
+    </div>
+</div>
+
+
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF3001</div>
+<div class="nombre">
+<a target="_blank">Algoritmos y Estructura de Datos</a>
+</div>
+<div class="creditos">3</div>
+<div class="requisitos">
+  <br>"IF2000"
+  </div>
+<div class="correquisitos">
+  <br>"IF3000"
+  </div>
+</div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF3100</div>
+  <div class="nombre">
+  <a target="_blank">Introducción a Sistemas de Información </a>
+  </div>
+  <div class="creditos">4</div>
+<div class="requisitos">
+  <br>"IF1300"
+  </div>
+  </div>
+
+<div class="curso matematica" style="cursor: pointer;">
+  <div class="sigla">MA0321</div>
+  <div class="nombre">
+  <a target="_blank">Cálculo Diferencial e Integral</a>
+  </div>
+  <div class="creditos">4</div>
+  </div>
+
+  <div class="curso servicio" style="cursor: pointer;">
+  <div class="sigla">XS0105</div>
+  <div class="nombre">
+  <a target="_blank">Estadística para Informáticos</a>
+  </div>
+  <div class="creditos">3</div>
+  </div>
+  <div>
+    <button  [routerLink]="['/general']" class= "wrapper"  >Agregar electivas</button></div>
+
+
+</div>
+<!--semestre II AÑO II-->
+
+  <div class="texto-horizontal">II semestre</div>
+  <div class= "semestre">
+  <div class="curso computacion enfasis" style="cursor: pointer;">
+  <div class="sigla">IF4000</div>
+  <div class="nombre">
+  <a>Arquitectura de Computadores</a>
+  </div>
+  <div class="creditos">3</div>
+  <div class="requisitos">
+  <br>"IF3000"
+  </div>
+  </div>
+
+
+  <div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF4001</div>
+  <div class="nombre">
+  <a target="_blank">Sistemas Operativos</a>
+  </div>
+  <div class="creditos">4</div>
+  <div class="requisitos">
+  <br>"IF3000"
+  </div>
+ <div class="correquisitos">
+  <br>"IF3001"
+  </div>
+  </div>
+  
+  <div class="curso computacion" style="cursor: pointer;">
+    <div class="sigla">IF4100</div>
+    <div class="nombre">
+    <a target="_blank">Fundamentos de Bases de Datos</a>
+    </div>
+    <div class="creditos">4</div>
+   <div class="requisitos">
+      <br>"IF3000"
+      </div>
+    </div>
+   
+
+  <div class="curso computacion" style="cursor: pointer;">
+    <div class="sigla">IF5200</div>
+    <div class="nombre">
+    <a target="_blank">Fundamentos de las Organizaciones</a>
+    </div>
+    <div class="creditos">4</div>
+   <div class="requisitos">
+      <br>"IF3100"
+      </div>
+    </div>
+  
+  <div class="curso matematica" style="cursor: pointer;">
+    <div class="sigla">MA0322</div>
+    <div class="nombre">
+    <a target="_blank">Álgebra Lineal</a>
+    </div>
+    <div class="creditos">4</div>
+   <div class="requisitos">
+      <br>"MA0320"
+      </div>
+      <div class="requisitos">
+      <br>"MA0321"
+      </div>
+    </div>
+    <div><button  [routerLink]="['/general']" class= "wrapper">Agregar electivas</button></div>
+  
+
+
+</div><!--año-->
+</div><!--contenedor-->
+<hr class ="short">
+
+
+
+<!--III año-->
+<div class="contenedor-anno">
+  <div class="titular-bloques-mb">III año</div>
+  <div class="anno">
+<div class="texto-horizontal">I semestre</div>
+<div class= "semestre">
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF401</div>
+<div class="nombre">
+<a>Lenguajes para Aplicaciones Comerciales</a>
+</div>
+<div class="creditos">4</div>
+<div class="requisitos">
+    <br>"IF3100"
+    </div>
+<div class="requisitos">
+    <br>"IF4100"
+    </div>
+</div>
+
+
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF5000</div>
+<div class="nombre">
+<a target="_blank">Redes y Comunicaciones de Datos</a>
+</div>
+<div class="creditos">3</div>
+<div class="requisitos">
+  <br>"IF4001"
+  </div>
+</div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF5100</div>
+  <div class="nombre">
+  <a target="_blank">Administración de Bases Datos </a>
+  </div>
+  <div class="creditos">4</div>
+<div class="requisitos">
+  <br>"IF4100"
+  </div>
+  </div>
+
+<div class="curso matematica" style="cursor: pointer;">
+  <div class="sigla">MA0323</div>
+  <div class="nombre">
+  <a target="_blank">Métodos Númeroricos</a>
+  </div>
+  <div class="creditos">4</div>
+<div class="requisitos">
+  <br>"MA0322"
+  </div>
+
+  </div>
+
+  <div class="curso generales" style="cursor: pointer;">
+  <div class="sigla">SR-1</div>
+  <div class="nombre">
+  <a target="_blank">Seminario de Realidad Nacional I</a>
+  </div>
+  <div class="creditos">3</div>
+<div class="requisitos">
+  <br>"EG-11"
+  </div>
+
+  </div>
+  <div>
+    <button  [routerLink]="['/general']" class= "wrapper"  >Agregar electivas</button></div>
+
+
+</div> <!--semestre II AÑO III-->
+
+  <div class="texto-horizontal">II semestre</div>
+  <div class= "semestre">
+  <div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF6000</div>
+  <div class="nombre">
+  <a>Redes en los Negocios</a>
+  </div>
+  <div class="creditos">4</div>
+  <div class="requisitos">
+  <br>"IF5000"
+  </div>
+  </div>
+
+
+  <div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF6100</div>
+  <div class="nombre">
+  <a target="_blank">Análisis y Diseño de Sistemas</a>
+  </div>
+  <div class="creditos">4</div>
+  <div class="requisitos">
+  <br>"IF5100"
+  </div>
+  </div>
+  
+  <div class="curso matematica" style="cursor: pointer;">
+    <div class="sigla">IF6200</div>
+    <div class="nombre">
+    <a target="_blank">Economía de la Computación</a>
+    </div>
+    <div class="creditos">4</div>
+   <div class="requisitos">
+      <br>"MA0323"
+      </div>
+    </div>
+   
+
+  <div class="curso computacion" style="cursor: pointer;">
+    <div class="sigla">IF6201</div>
+    <div class="nombre">
+    <a target="_blank">Informática Aplicada a los Negocios</a>
+    </div>
+    <div class="creditos">3</div>
+   <div class="requisitos">
+      <br>"IF5200"
+      </div>
+    </div>
+  
+  <div class="curso generales" style="cursor: pointer;">
+    <div class="sigla">SR-II</div>
+    <div class="nombre">
+    <a target="_blank">Seminario de Realidad Nacional</a>
+    </div>
+    <div class="creditos">2</div>
+   <div class="requisitos">
+      <br>"SR-I"
+      </div>
+     
+    </div>
+    <div><button  [routerLink]="['/general']" class= "wrapper">Agregar electivas</button></div>
+
+</div><!--año-->
+</div><!--contenedor-->
+
+<hr class="short">
+
+
+<!--IV año-->
+<div class="contenedor-anno">
+  <div class="titular-bloques-mb">IV año</div>
+  <div class="anno">
+<div class="texto-horizontal">I semestre</div>
+<div class= "semestre">
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF7100</div>
+<div class="nombre">
+<a>Ingeniería de Software</a>
+</div>
+<div class="creditos">4</div>
+<div class="requisitos">
+    <br>"IF6100"
+    </div>
+</div>
+
+
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">IF7101</div>
+<div class="nombre">
+<a target="_blank">Compromiso Social</a>
+</div>
+<div class="creditos">2</div>
+<div class="correquisitos">
+  <br>"IF7100"
+  </div>
+</div>
+
+<div class="curso matematica" style="cursor: pointer;">
+  <div class="sigla">IF7200</div>
+  <div class="nombre">
+  <a target="_blank">Métodos Cuantitativos para la Toma de Decisiones </a>
+  </div>
+  <div class="creditos">4</div>
+<div class="requisitos">
+  <br>"IF6000"
+  </div>
+  <div class="requisitos">
+  <br>"IF6200"
+  </div>
+  </div>
+
+<div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF7201</div>
+  <div class="nombre">
+  <a target="_blank">Gestión de Proyetos</a>
+  </div>
+  <div class="creditos">4</div>
+<div class="requisitos">
+  <br>"IF6200"
+  </div>
+
+  </div>
+
+  <div class="curso servicio" style="cursor: pointer;">
+  <div class="sigla">OPT453</div>
+  <div class="nombre">
+  <a target="_blank">Optativo para Temas Especiales</a>
+  </div>
+  <div class="creditos">3</div>
+<div class="requisitos">
+  <br>"EG-11"
+  </div>
+
+  </div>
+  <div>
+    <button  [routerLink]="['/general']" class= "wrapper"  >Agregar electivas</button></div>
+
+
+</div> <!--semestre II AÑO IV-->
+
+  <div class="texto-horizontal">II semestre</div>
+  <div class= "semestre">
+  <div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF8100</div>
+  <div class="nombre">
+  <a>Práctica Supervisada</a>
+  </div>
+  <div class="creditos">6</div>
+  <div class="requisitos">
+  <br>"IF7100"
+  </div>
+   <div class="requisitos">
+  <br>"IF7201"
+  </div>
+  </div>
+
+
+  <div class="curso computacion" style="cursor: pointer;">
+  <div class="sigla">IF8200</div>
+  <div class="nombre">
+  <a target="_blank">Auditoría Informática</a>
+  </div>
+  <div class="creditos">4</div>
+  <div class="requisitos">
+    <br>"IF7100"
+    </div>
+     <div class="requisitos">
+    <br>"IF7201"
+    </div>
+  </div>
+  
+  <div class="curso matematica" style="cursor: pointer;">
+    <div class="sigla">IF8201</div>
+    <div class="nombre">
+    <a target="_blank">Planificación Informática</a>
+    </div>
+    <div class="creditos">4</div>
+   <div class="requisitos">
+      <br>"IF7201"
+      </div>
+    </div>
+   
+
+  <div class="curso generales" style="cursor: pointer;">
+    <div class="sigla">RP-1</div>
+    <div class="nombre">
+    <a target="_blank">Repertorio</a>
+    </div>
+    <div class="creditos">3</div>
+  
+    </div>
+  
+
+    <div><button  [routerLink]="['/general']" class= "wrappere">Agregar electivas</button></div>
+
+</div><!--año-->
+</div><!--contenedor-->
+</div> 
+   
+
+<hr class="short">
+
+  <!--<div class="item3">
+    <button [routerLink]="['/general']" mat-menu-item >Bloque de electivas</button>
+    </div> --> 
+
+
+ <div class="item5"> <img  src="./assets/footerLogo.png">
+    <mat-icon>facebook</mat-icon>
+      <p>Todos los derechos reservados <br>Universidad de Costa Rica <br>Informática Empresarial</p>
+
+    </div>
+
+
+
