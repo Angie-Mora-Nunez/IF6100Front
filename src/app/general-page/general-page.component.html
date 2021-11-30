@@ -68,21 +68,13 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Ciclo</mat-label>
               <mat-select [(ngModel)]="courseData.ciclo" >
-                <mat-option value="one">I Ciclo</mat-option>
-                <mat-option value="two">II Ciclo</mat-option>
-                <mat-option value="two">III Ciclo</mat-option>
+                <mat-option value="I Ciclo">I Ciclo</mat-option>
+                <mat-option value="II Ciclo">II Ciclo</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field appearance="outline" class="input-size">
-              <mat-label>Créditos</mat-label>
-              <mat-select [(ngModel)]="courseData.creditos">
-                <mat-option value="one">1</mat-option>
-                <mat-option value="two">2</mat-option>
-                <mat-option value="three">3</mat-option>
-                <mat-option value="four">4</mat-option>
-                <mat-option value="five">5</mat-option>
-                <mat-option value="six">6</mat-option>
-              </mat-select>
+            <mat-form-field class="input-size" appearance="outline">
+              <mat-label>Horas teoría</mat-label>
+              <input type="number" [(ngModel)]="courseData.creditos" matInput>
             </mat-form-field>
           </div>
   
@@ -284,7 +276,7 @@
 
 
         <div class="form-row">
-          <div class="column-half"><button (Click)='addCursoC()' type="submit" class="button button1" mat-menu-item>Agregar</button>
+          <div class="column-half"><button (click)='addCourse()' type="submit" class="button button1" mat-menu-item>Agregar</button>
           </div>
           <div class="column-half"><button class="button button2" mat-menu-item>Cancelar</button>
           </div>

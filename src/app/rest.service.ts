@@ -40,7 +40,29 @@ export class RestService {
     );
   }
 //---------------------------------------------------------------------------------------------------
+getAreaDisciplinaria(): Observable<any> {
+  console.log("si pasa por el servicio");
+  return this.http.get(endpoint + "areadisciplinaria/areasdisciplinarias").pipe(map(this.extractData),
+  catchError(this.handleError<any>("lista de areas disciplinarias"))
+  );
+}
+//---------------------------------------------------------------------------------------------------
 addCurso(curso: Curso): Observable<any> {
+  return this.http.post<any>(endpoint + "curso/add/", JSON.stringify(curso), httpOptions)
+    .pipe(tap((issue) => console.log("curso agregado")),
+      catchError(this.handleError<any>("addCurso"))
+    );
+}
+
+//---------------------------------------------------------------------------------------------------
+getCursos(): Observable<any> {
+  console.log("si pasa");
+  return this.http.get(endpoint + "curso/cursos").pipe(map(this.extractData),
+  catchError(this.handleError<any>("lista de areas disciplinarias"))
+  );
+}
+//---------------------------------------------------------------------------------------------------
+addCursoElectivo(curso: Curso): Observable<any> {
   return this.http.post<any>(endpoint + "curso/add/", JSON.stringify(curso), httpOptions)
     .pipe(tap((issue) => console.log("curso agregado")),
       catchError(this.handleError<any>("addCurso"))
