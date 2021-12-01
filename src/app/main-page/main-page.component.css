@@ -1,59 +1,232 @@
 .mat-toolbar {
-    background: #41ade7;
-    height: 108px;
-    padding: 15px;
+  background: #41ade7;
+  height: 108px;
+  padding: 15px;
 
-  }
+}
 
 
-  .mat-icon{
-    position: relative;
-    top: 0px; left: 1100px;
-  }
+.mat-icon{
+  position: relative;
+  top: 0px; left: 1100px;
+}
 
 .item5 {
-    background: #666666;
-    height: 70px;
-    padding: 30px;
-    
-  }
+  background: #666666;
+  height: 70px;
+  padding: 30px;
+  
+}
 
-  .item3 img{
-    width:100%;
-    height:100%;
-  }
+.item3 img{
+  width:100%;
+  height:100%;
+}
 
 .item5 img{
-    height: 70px;
-  }
+  height: 70px;
+}
 
- 
 
-  .item5 p{
-    text-align: center;
-    position: relative;
-    top: -75px; left: 0px;
-  }
 
-  .item1 {
-    text-align: center;
-  }
+.item5 p{
+  text-align: center;
+  position: relative;
+  top: -75px; left: 0px;
+}
+
+.item1 {
+  text-align: center;
+}
 
 .imageAcredi{
-    position: relative;
-    top: 0px; left: 1300px;
+  position: relative;
+  top: 0px; left: 1300px;
 }
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'main main main main main main'
+    'footer footer footer footer footer footer';
+
+  background-color: #e6e6e6;
+
   
+}
+
+/*
+=====
+DEPENDENCES
+=====
+*/
+
+.r-link{
+display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href]{
+color: var(--rLinkColor) !important;
+text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+.r-list{
+padding-left: var(--rListPaddingLeft, 0) !important;
+margin-top: var(--rListMarginTop, 0) !important;
+margin-bottom: var(--rListMarginBottom, 0) !important;
+list-style: var(--rListListStyle, none) !important;
+}
 
 
-  .grid-container {
-    display: grid;
-    grid-template-areas:
-      'header header header header header header'
-      'main main main main main main'
-      'footer footer footer footer footer footer';
-  
-    background-color: #e6e6e6;
+/*
+=====
+CORE STYLES
+=====
+*/
 
-    
-  }
+.menu{
+--rLinkColor: var(--menuLinkColor, currentColor);
+}
+
+.menu__link{
+display: var(--menuLinkDisplay, block);
+}
+
+/* 
+focus state 
+*/
+
+.menu__link:focus{
+outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
+outline-offset: var(--menuLinkOutlineOffset);
+}
+
+/* 
+fading siblings
+*/
+
+.menu:hover .menu__link:not(:hover){
+--rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
+}
+
+/*
+=====
+PRESENTATION STYLES
+=====
+*/
+
+.menu{
+background-color: var(--menuBackgroundColor, #f0f0f0);
+box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+}
+
+.menu__list{
+display: flex;  
+}
+
+.menu__link{
+padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+font-weight: 700;
+text-transform: uppercase;
+}
+
+/* 
+=====
+TEXT UNDERLINED
+=====
+*/
+
+.mat-icon{
+  position: relative;
+  top: 0px; left: 860px;
+}
+
+.text-underlined{
+position: relative;
+overflow: hidden;
+
+will-change: color;
+transition: color .25s ease-out;  
+}
+
+.text-underlined::before, 
+.text-underlined::after{
+content: "";
+width: 0;
+height: 3px;
+background-color: var(--textUnderlinedLineColor, currentColor);
+
+will-change: width;
+transition: width .1s ease-out;
+
+position: absolute;
+bottom: 0;
+}
+
+.text-underlined::before{
+left: 50%;
+transform: translateX(-50%); 
+}
+
+.text-underlined::after{
+right: 50%;
+transform: translateX(50%); 
+}
+
+.text-underlined:hover::before, 
+.text-underlined:hover::after{
+width: 100%;
+transition-duration: .2s;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+
+.page__custom-settings{
+--menuBackgroundColor: #f7f6fa;
+--menuLinkColor: rgb(0, 0, 0);
+--menuLinkColorUnactive: #000000;
+--menuLinkOutlineOffset: -.5rem; 
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+body{
+font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+margin: 0;
+min-height: 100vh;
+display: flex;  
+flex-direction: column;
+}
+
+.page{
+box-sizing: border-box;
+max-width: 640px;
+padding-left: .75rem;
+padding-right: .75rem;
+margin: auto;
+}
+
+.page__menu:nth-child(n+2){
+margin-top: 3rem;
+}
+
+
+.substack{
+border:1px solid #EEE; 
+background-color: #fff;
+width: 100%;
+max-width: 480px;
+height: 280px;
+margin: 1rem auto;;
+} 

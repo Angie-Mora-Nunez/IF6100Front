@@ -1,337 +1,149 @@
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     I Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item3 { grid-area: main; }
+.item5 { grid-area: footer; }
 
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> EJ-</mat-card-title>
-        <mat-card-subtitle>Curso de Arte</mat-card-subtitle>
-        <mat-card-content>2 Créditos</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title> EJ-1</mat-card-title>
-        <mat-card-subtitle>Curso Integrado de Humanidades I</mat-card-subtitle>
-        <mat-card-content>6 Créditos</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF1300</mat-card-title>
-        <mat-card-subtitle>Introducción a la computación e Informática</mat-card-subtitle>
-        <mat-card-content>4 Créditos</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF1400</mat-card-title>
-        <mat-card-subtitle>Lógica para Informáticos</mat-card-subtitle>
-        <mat-card-content>2 Créditos</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>LM1030</mat-card-title>
-        <mat-card-subtitle>Estrategias de Lectura en Inglés I </mat-card-subtitle>
-        <mat-card-content>4 Créditos</mat-card-content>
-       </mat-card>
 
-       <button class= "mat-button">Agregar electivas</button>
+
+</style>
+</head>
+<body>
+
+
+  <div class="item1">
+
+    <p>
+      <mat-toolbar >
+        <mat-toolbar-row>
+
+          
+          <img height="130px" src="./assets/logo1.png" >
+          <img height="60px" src="./assets/IE.png" >
+
+
+          <mat-icon  >accessible</mat-icon>
+          <mat-icon>language</mat-icon>
+          <mat-icon>account_box</mat-icon>
+     
+        </mat-toolbar-row>
     
+
+      </mat-toolbar>
+    </p>
+
+
+
+</div>
+
+
+
+
+<section class="page-header">
+<div class=container>
+  <div class="page">
+
+
+   
+</div>
+
+<div class="row">
+<div class="col-md-12">
+<ol class="breadcrumb">
+<li>
+
+<a [routerLink]="['/courses']">Plan Estudio</a>
+
+</li>
+<li class="active">"Plan de Estudio"</li>
+
+</ol>
+</div>
+</div><!--row-->
+<a id="main-content"></a>
+<div class="row">
+<div class="col-md-12">
+<h1>Electivas de las la Carrera de Informática Empresarial</h1>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</div><!--container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<div classs="courses-print">
+<div class="container">
+<div class="contenedor-anno">
+<div class="anno">
+<div class="texto-vertical"></div>
+<div class="texto-horizontal"></div>
+<div class= "semestre">
+<div class="curso computacion" style="cursor: pointer;">
+<div class="sigla">EJ-1</div>
+<div class="nombre">
+<a>Ejemplo</a>
+</div>
+<div class="creditos">2</div>
+<div class="requisitos">
+  <br>"IF6200"
+  </div>
+
+
+</div>
+
+
+   
+</div><!--año-->
+<button  [routerLink]="['/general']" class= "wrappere"  >Agregar electivas</button></div>
+</div><!--contenedor-->
 </div> 
 
-       
+<hr class="short">
 
-</mat-expansion-panel>
+  <!--<div class="item3">
+    <button [routerLink]="['/general']" mat-menu-item >Bloque de electivas</button>
+    </div> --> 
 
-</mat-accordion>
+
+ <div class="item5"> <img  src="./assets/footerLogo.png">
+    <mat-icon>facebook</mat-icon>
+      <p>Todos los derechos reservados <br>Universidad de Costa Rica <br>Informática Empresarial</p>
+
+    </div>
 
 
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     II Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> EJ-</mat-card-title>
-        <mat-card-subtitle>Actividad Deportiva</mat-card-subtitle>
-        <mat-card-content>0 Créditos</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title> EJ-2</mat-card-title>
-        <mat-card-subtitle>Curso Integrado de Humanidades II</mat-card-subtitle>
-        <mat-card-content>6 Créditos Requisitos EG-1</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF2000</mat-card-title>
-        <mat-card-subtitle>Programación I</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF1300</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> LM1032 </mat-card-title>
-        <mat-card-subtitle>Estrategias de lectura en inglés</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos LM1030</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>MA0320</mat-card-title>
-        <mat-card-subtitle>Estructuras mátematicas discretas </mat-card-subtitle>
-        <mat-card-content>4 Créditos</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     III Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> IF3000</mat-card-title>
-        <mat-card-subtitle>Programación II </mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF2000 </mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title>IF3001</mat-card-title>
-        <mat-card-subtitle>Algoritmos y estructura de datos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF2000</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>IF3100</mat-card-title>
-        <mat-card-subtitle>Introducción a Sistemas de Información</mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos IF1300</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>MA0321</mat-card-title>
-        <mat-card-subtitle>Cálculo diferencial</mat-card-subtitle>
-        <mat-card-content>4 Créditos</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>XS0105</mat-card-title>
-        <mat-card-subtitle>Estadística para informáticos</mat-card-subtitle>
-        <mat-card-content>3 Créditos</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     IV Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> IF4000</mat-card-title>
-        <mat-card-subtitle>Arquitectura de computadores</mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos IF3000</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title> IF4001</mat-card-title>
-        <mat-card-subtitle>Sistemas operativos </mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF3000 IF3001</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF4100</mat-card-title>
-        <mat-card-subtitle>Fundamentos de base de datos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF3000</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF5200 </mat-card-title>
-        <mat-card-subtitle>Fundamentos de las organizaciones</mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos IF3100</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>MA0322</mat-card-title>
-        <mat-card-subtitle>Álgebra lineal </mat-card-subtitle>
-        <mat-card-content>4 MA0320, MA0321</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     V Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> IF4101</mat-card-title>
-        <mat-card-subtitle>Lenguajes para aplicaciones comerciales</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF3100,IF4100</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title>IF5000</mat-card-title>
-        <mat-card-subtitle>Redes y comunicaciones de datos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF4001</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>IF5100</mat-card-title>
-        <mat-card-subtitle>Administración de bases de datos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF4100</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>MA0323</mat-card-title>
-        <mat-card-subtitle>Métodos numéricos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos MA0322</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>SR-I</mat-card-title>
-        <mat-card-subtitle>Seminario de realidad nacional I</mat-card-subtitle>
-        <mat-card-content>2 Créditos EG-II</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     VI Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> EJ-</mat-card-title>
-        <mat-card-subtitle>Redes en los negocios</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF5000</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title>IF6100</mat-card-title>
-        <mat-card-subtitle>Ánalisis y diseño de sistemas</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF5100</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF6200</mat-card-title>
-        <mat-card-subtitle>Economía de la computación </mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos MA0323</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF6201 </mat-card-title>
-        <mat-card-subtitle>Informática aplicada a los negocios</mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos IF5200</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>SR-II</mat-card-title>
-        <mat-card-subtitle>Seminario de realidad nacional</mat-card-subtitle>
-        <mat-card-content>2 Créditos Requisitos SR-I</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     VII Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card>
-        <mat-card-title> IF7100</mat-card-title>
-        <mat-card-subtitle>Ingeniería de software</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF6100</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title>IF7101</mat-card-title>
-        <mat-card-subtitle>Compromiso social de la informática</mat-card-subtitle>
-        <mat-card-content>2 Créditos</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF7200</mat-card-title>
-        <mat-card-subtitle>Métodos cuantitativos para la toma de decisiones</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF6000,IF6200</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF7201 </mat-card-title>
-        <mat-card-subtitle>Gestión de proyectos</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF6200</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title>OPT453</mat-card-title>
-        <mat-card-subtitle>Optativo de temas especiales</mat-card-subtitle>
-        <mat-card-content>3 Créditos</mat-card-content>
-       </mat-card>
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion class="example-headers-align">
- <mat-expansion-panel hideToggle>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-     VIII Ciclo 
-    </mat-panel-title>
-    
-  </mat-expansion-panel-header>
-
-    <div class= "main-div">
-    <mat-card >
-        <mat-card-title> IF8100</mat-card-title>
-        <mat-card-subtitle>Práctica empresarial Supervisal </mat-card-subtitle>
-        <mat-card-content>6 Créditos Requisitos IF7100, IF7201</mat-card-content>
-       </mat-card>
-       <mat-card>
-        <mat-card-title>IF8200</mat-card-title>
-        <mat-card-subtitle>Auditoría informática</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF7100,IF7201</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> IF8201</mat-card-title>
-        <mat-card-subtitle>Planificación informática</mat-card-subtitle>
-        <mat-card-content>4 Créditos Requisitos IF7201</mat-card-content>
-       </mat-card>
-         <mat-card>
-        <mat-card-title> RP-1 </mat-card-title>
-        <mat-card-subtitle>Repertorio</mat-card-subtitle>
-        <mat-card-content>3 Créditos Requisitos </mat-card-content>
-       </mat-card>
-       
-
-       <button class= "mat-button">Agregar electivas</button>
-    
-</div> 
-</mat-expansion-panel>
-</mat-accordion>
 
