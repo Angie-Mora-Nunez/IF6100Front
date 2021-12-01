@@ -24,7 +24,7 @@
           <img height="60px" src="./assets/IE.png" >
 
 
-            <mat-icon  >accessible</mat-icon>
+            <mat-icon>accessible</mat-icon>
             <mat-icon>language</mat-icon>
             <mat-icon>account_box</mat-icon>
      
@@ -60,9 +60,9 @@
             </mat-form-field>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Área disciplinaria</mat-label>
-              <mat-select [(ngModel)]="courseData.areaDisciplinaria">
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
+              <mat-select [(ngModel)]="courseData.areaDisciplinaria.idAreaDisciplinaria" (ngModelChange)="areaChange($event)">
+                <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
+                <mat-option value="1">Disciplina 3</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline" class="input-size">
@@ -73,13 +73,12 @@
               </mat-select>
             </mat-form-field>
             <mat-form-field class="input-size" appearance="outline">
-              <mat-label>Horas teoría</mat-label>
+              <mat-label>Créditos</mat-label>
               <input type="number" [(ngModel)]="courseData.creditos" matInput>
             </mat-form-field>
           </div>
   
         </div>
-  
         <div class="column-half">
           
           <div class="input-group">
@@ -90,10 +89,8 @@
             </div>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Unidad(es) académica(s)</mat-label>
-              <mat-select  multiple>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-                <mat-option value="one">Third option</mat-option>
+              <mat-select  multiple matNativeControl [(ngModel)]="courseData.unidadesAcademicasPropietarias" name="unidad">
+                <mat-option *ngFor="let unidad of results" value="unidad.idResultadoAprendizaje">{{ unidad.descripcion }}</mat-option>
               </mat-select>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
@@ -134,11 +131,22 @@
             </div>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Requisitos</mat-label>
-              <mat-select  multiple>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-                <mat-option value="one">Third option</mat-option>
+              <mat-select multiple matNativeControl  [(ngModel)]="courseData.requisitos" name="requirement">
+                <mat-option *ngFor="let requirement of req" [value]="requirement.idCurso" >{{ requirement.nombre }}</mat-option>
               </mat-select>
+          </mat-form-field>
+          <!--mat-form-field appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "r">
+              <mat-option *ngFor="let r of results" [value]="r.idResultadoAprendizaje">{{ r.descripcion }}</mat-option>
+            </mat-select>
+         </mat-form-field-->
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Modalidad</mat-label>
+            <mat-select [(ngModel)]="courseData.modalidad.idModalidad" (ngModelChange)="modalidadChange($event)" >
+              <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
+              <mat-option value="1">Virtual</mat-option>
+            </mat-select>
           </mat-form-field>
           </div>
   
@@ -155,10 +163,11 @@
 
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Co-Requisitos</mat-label>
-              <mat-select  multiple>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-                <mat-option value="one">Third option</mat-option>
+              <mat-select multiple matNativeControl  [(ngModel)]="courseData.correquisitos" (ngModelChange)="coreqChange($event)">
+                <mat-option value="1">First option</mat-option>
+                <mat-option value="2">Second option</mat-option>
+                <mat-option value="3">Third option</mat-option>
+                  <!--mat-option *ngFor="let coreq of results" [value]="coreq.idResultadoAprendizaje">{{ coreq.descripcion }}</mat-option-->
               </mat-select>
           </mat-form-field>
           </div>
@@ -199,12 +208,26 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <mat-form-field class="example-full-width">
-                <mat-label>Enter Note:</mat-label>
-                <textarea matInput placeholder="Resultados de aprendizaje"></textarea>
-              </mat-form-field>
+              <!--mat-form-field class="example-full-width">
+                <mat-label>Resultados de aprendizaje:</mat-label>
+                <textarea [(ngModel)]="courseData.resultadosDeAprendizaje"  matInput placeholder="Resultados de aprendizaje"></textarea>
+              </mat-form-field-->
+              <mat-form-field appearance="outline" >
+                <mat-label>Resultados</mat-label>
+                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "r">
+                  <mat-option *ngFor="let r of results" [value]="r.idResultadoAprendizaje">{{ r.descripcion }}</mat-option>
+                </mat-select>
+             </mat-form-field>
+            <!--mat-form-field appearance="fill">
+              <mat-label>Favorite car</mat-label>
+              <select matNativeControl [(ngModel)]="selectedCar" name="car">
+                <option value="" selected></option>
+                <option *ngFor="let car of cars" [value]="car.value">
+                  {{car.viewValue}}
+                </option>
+              </select>
+            </mat-form-field-->
             </div>
-
           </div>
         </div>
 
@@ -216,10 +239,16 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <mat-form-field class="example-full-width">
-                <mat-label>Enter Note:</mat-label>
-                <textarea matInput placeholder="Contenido, subtemas"></textarea>
-              </mat-form-field>
+              <!--mat-form-field class="example-full-width">
+                <mat-label>Contenido:</mat-label>
+                <textarea  [(ngModel)]="courseData.contenidos" matInput placeholder="Contenido, subtemas"></textarea>
+              </mat-form-field-->
+              <mat-form-field appearance="outline" >
+                <mat-label>Contenido</mat-label>
+                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "cont">
+                  <mat-option *ngFor="let cont of results" [value]="cont.idResultadoAprendizaje">{{ cont.descripcion }}</mat-option>
+                </mat-select>
+             </mat-form-field>
             </div>
           </div>
 
@@ -230,10 +259,16 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <mat-form-field class="example-full-width">
-                <mat-label>Enter Note:</mat-label>
-                <textarea matInput placeholder="Bibliografia"></textarea>
-              </mat-form-field>
+              <!--mat-form-field class="example-full-width">
+                <mat-label>Referencias Bibliograficas:</mat-label>
+                <textarea [(ngModel)]="courseData.referenciasBibliograficas" matInput placeholder="Bibliografia"></textarea>
+              </mat-form-field-->
+              <mat-form-field appearance="outline" >
+                <mat-label>Referencias bibliográficas</mat-label>
+                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "referencias">
+                  <mat-option *ngFor="let referencias of results" [value]="referencias.idResultadoAprendizaje">{{ referencias.descripcion }}</mat-option>
+                </mat-select>
+             </mat-form-field>
             </div>
           </div>
         </div>
@@ -247,10 +282,16 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <mat-form-field class="example-full-width">
-                <mat-label>Enter Note:</mat-label>
-                <textarea matInput placeholder="Curso propio"></textarea>
-              </mat-form-field>
+              <!--mat-form-field class="example-full-width">
+                <mat-label>Descripción:</mat-label>
+                <textarea [(ngModel)]="courseData.itemesDescripcion" matInput placeholder="Descripción"></textarea>
+              </mat-form-field-->
+              <mat-form-field appearance="outline">
+                <mat-label>Descripción</mat-label>
+                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "descr">
+                  <mat-option *ngFor="let descr of results" [value]="descr.idResultadoAprendizaje">{{ descr.descripcion }}</mat-option>
+                </mat-select>
+             </mat-form-field>
             </div>
           </div>
 
@@ -264,10 +305,16 @@
                 <i class="tim-icons icon-lock-circle"> </i>
               </div>
             </div>
-            <mat-form-field class="example-full-width">
-              <mat-label>Enter Note:</mat-label>
+            <!--mat-form-field class="example-full-width">
+              <mat-label>Enfasis:</mat-label>
               <textarea matInput placeholder="Curso propio"></textarea>
-            </mat-form-field>
+            </mat-form-field-->
+            <mat-form-field appearance="outline">
+              <mat-label>Énfasis</mat-label>
+              <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "enfasis">
+                <mat-option *ngFor="let enfasis of results" [value]="enfasis.idResultadoAprendizaje">{{ enfasis.descripcion }}</mat-option>
+              </mat-select>
+           </mat-form-field>
           </div>
 
         </div>
