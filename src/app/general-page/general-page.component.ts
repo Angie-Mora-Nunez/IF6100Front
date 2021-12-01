@@ -6,41 +6,84 @@ import { Modalidad } from "../models/Modalidad";
 import { AreaDisciplinaria } from "../models/AreaDisciplinaria";
 import { PlanEstudio } from "../models/PlanEstudio";
 
+interface Resultados { // ejemplo
+  idResultadoAprendizaje: string;
+  descripcion: string;
+}
+
 @Component({
   selector: 'app-general-page',
   templateUrl: './general-page.component.html',
   styleUrls: ['./general-page.component.css']
 })
+
 export class GeneralPageComponent implements OnInit {
-  req: any = [];
-  area: any = [];
+  selectedCar: string = ''; // ejemplo
+  results: Resultados[] = [ 
+    {idResultadoAprendizaje: '1', descripcion: 'Leer'},
+    {idResultadoAprendizaje: '2', descripcion: 'Bla'},
+    {idResultadoAprendizaje: '3', descripcion: 'Bla bla'},
+  ];
+
   @Input() courseData = {sigla: '', nombre: '', creditos: 0, ciclo: '', electivo: true, horasTeoria: 0, horasPractica: 0,horasLaboratorio: 0, 
                           horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenidos: [], 
-                          itemesDescripcion: [], referenciasBibliograficas: [], resultadosDeAprendizaje: [], modalidad: {"idModalidad": 1, "tipoModalidad": "Virtual","cursos": []}, areaDisciplinaria: {"idAreaDisciplinaria": 1, "nombreDisciplinaria": "a", "cursos": []},
+                          itemesDescripcion: [], referenciasBibliograficas: [], resultadosDeAprendizaje: [],
+                          modalidad: {idModalidad: 0, "tipoModalidad": "Virtual","cursos": []},
+                          areaDisciplinaria: {idAreaDisciplinaria: 0, "nombreDisciplinaria": "a", "cursos": []},
                           enfasis: [], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
                           unidadesAcademicasPropietarias: []};
+  
+  issue: any;
+  showCommen: any = [];
+  req: any = [];
+  area: any = [];
+
 
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
+    //this.addCourse();
+    //this.addCursoC();
+    //this.getAreaDisciplinaria();
+    //this.getCursos();
+    //this.getModalidades();
   }
-  addCursoC() {
-
-    let obj: Curso = JSON.parse('{ "sigla": "IF3001", "nombre": "Programación I", "creditos": 5, "ciclo": "II Ciclo", "electivo": 0, "horasTeoria": 4, "horasPractica": 4, "horasLaboratorio": 3, "horasTeoricoPractica": 0, "objetivoGeneral": "Prueba2", "electivos": [], "requisitos": [], "correquisitos": [], "contenidos": [], "itemesDescripcion": [], "referenciasBibliograficas": [], "resultadosDeAprendizaje": [], "modalidad": {"idModalidad": 1, "tipoModalidad": "Virtual","cursos": []}, "areaDisciplinaria": {"idAreaDisciplinaria": 1, "nombreDisciplinaria": "a", "cursos": []}, "enfasis": [], "planEstudio": {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, "unidadesAcademicasPropietarias": [] }');
-  
-    this.rest.addCurso(obj).subscribe((result) => {
-    }, (err) => { console.log(err); });
+  modalidadChange(value: string) {
+    if (value) {
+      this.courseData.modalidad.idModalidad = +value;
+    }
+ }
+ areaChange(value: string) {
+  if (value) {
+    this.courseData.areaDisciplinaria.idAreaDisciplinaria = +value;
   }
+ }
+ unidadChange(value: any []) {
+  if (value) {
 
+    //this.courseData.unidadesAcademicasPropietarias = +value;
+
+  }
+ }
+ coreqChange(value: string) {
+  if (value) {
+        //this.courseData.unidadesAcademicasPropietarias = +value;
+  }
+ }
   addCourse() { 
+
     this.rest.addCurso(this.courseData).subscribe((result) => {
       //this.router.navigate(['/supporterlist']);
     }, (err) => {
       console.log(err);
     });
   }
-  cancel() {
-    //this.router.navigate(['/supporterlist']);
+  getModalidades() {
+    this.showCommen = [];
+    this.rest.getModalidad().subscribe((data: {}) => {
+      console.log(data);
+      this.showCommen = data;
+    });
   }
   getAreaDisciplinaria() {
     this.area =  [];
@@ -55,5 +98,8 @@ export class GeneralPageComponent implements OnInit {
       console.log(data);
       this.req = data;
     });
+  }
+  cancel() {
+    //this.router.navigate(['/supporterlist']);
   }
 }
