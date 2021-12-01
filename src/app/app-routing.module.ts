@@ -5,9 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import { CoursePageComponent } from './course-page/course-page.component';
 import { GeneralPageComponent } from './general-page/general-page.component';
-import { RequirementsPageComponent } from './requirements-page/requirements-page.component';
-import { ContentsPageComponent } from './contents-page/contents-page.component';
-import { EjemploComponent } from './ejemplo/ejemplo.component';
+import { AgregarElectivapageComponent } from './agregar-electivapage/agregar-electivapage.component';
 
 const routes: Routes = [
 
@@ -15,9 +13,7 @@ const routes: Routes = [
   { path: "home", component: MainPageComponent },
   { path: "courses", component: CoursePageComponent },
   { path: "general", component: GeneralPageComponent },
-  { path: "requirement", component: RequirementsPageComponent },
-  { path: "contents", component: ContentsPageComponent },
-  {path: "ejemplo", component: EjemploComponent}
+  {path: "agregarelectiva", component: AgregarElectivapageComponent}
 ];
 
 @NgModule({
