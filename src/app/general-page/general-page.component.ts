@@ -26,12 +26,12 @@ export class GeneralPageComponent implements OnInit {
   ];
 
   @Input() courseData = {sigla: '', nombre: '', creditos: 0, ciclo: '', electivo: true, horasTeoria: 0, horasPractica: 0,horasLaboratorio: 0, 
-                          horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenidos: [], 
-                          itemesDescripcion: [], referenciasBibliograficas: [], resultadosDeAprendizaje: [],
+                          horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenido: [{"idContenido":1}], 
+                          itemDescripcion: [{"idDescripcion": 1}], referenciasBibliograficas: [{"referencia":"ejemplo"}], resultadosDeAprendizaje: [{"descripcion":"ejemplo"},{"descripcion":"ejemplo2"}],
                           modalidad: {idModalidad: 0, "tipoModalidad": "Virtual","cursos": []},
                           areaDisciplinaria: {idAreaDisciplinaria: 0, "nombreDisciplinaria": "a", "cursos": []},
-                          enfasis: [], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
-                          unidadesAcademicasPropietarias: []};
+                          enfasis: [{"idEnfasis": 1}], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
+                          unidadesAcademicasPropietarias: [{"idUnidadAcademica": 1}]};
   
   issue: any;
   showCommen: any = [];
@@ -42,8 +42,6 @@ export class GeneralPageComponent implements OnInit {
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
-    //this.addCourse();
-    //this.addCursoC();
     //this.getAreaDisciplinaria();
     //this.getCursos();
     //this.getModalidades();
@@ -100,6 +98,6 @@ export class GeneralPageComponent implements OnInit {
     });
   }
   cancel() {
-    //this.router.navigate(['/supporterlist']);
+    this.router.navigate(['/agregarelectiva']);
   }
 }
