@@ -26,12 +26,12 @@ export class GeneralPageComponent implements OnInit {
   ];
 
   @Input() courseData = {sigla: '', nombre: '', creditos: 0, ciclo: '', electivo: true, horasTeoria: 0, horasPractica: 0,horasLaboratorio: 0, 
-                          horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenido: [], 
-                          itemDescripcion: [], referenciasBibliograficas: [{"referencia":"ejemplo"}], resultadosDeAprendizaje: [{"descripcion":"ejemplo"},{"descripcion":"ejemplo2"}],
-                          modalidad: {idModalidad: 0, "tipoModalidad": "Virtual","cursos": []},
-                          areaDisciplinaria: {idAreaDisciplinaria: 0, "nombreDisciplinaria": "a", "cursos": []},
-                          enfasis: [], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
-                          unidadesAcademicasPropietarias: []};
+                          horasTeoricoPractica: 0, objetivoGeneral: '', curso:[ [{"idCurso":2}],  [{"idCurso":3}],  [{"idCurso":4}]], contenido: [{"idContenido":1}], 
+                          itemDescripcion: [{"idDescripcion":1}], referenciasBibliograficas: [{"referencia":"ejemplo"}], resultadosDeAprendizaje: [{"descripcion":"ejemplo"},{"descripcion":"ejemplo2"}],
+                          modalidad: {idModalidad: 1, "tipoModalidad": "Virtual","cursos": []},
+                          areaDisciplinaria: {idAreaDisciplinaria: 1, "nombreDisciplinaria": "a", "cursos": []},
+                          enfasis: [{"idEnfasis":1}], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
+                          unidadesAcademicasPropietarias: [{"idUnidadAcademica":1}]};
   
   issue: any;
   mod: any = []; //antes era showComen
@@ -77,7 +77,7 @@ export class GeneralPageComponent implements OnInit {
   addCourse() { 
 
     this.rest.addCurso(this.courseData).subscribe((result) => {
-      //this.router.navigate(['/supporterlist']);
+     // this.router.navigate(['/supporterlist']);
     }, (err) => {
       console.log(err);
     });

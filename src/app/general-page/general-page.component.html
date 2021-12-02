@@ -131,7 +131,7 @@
             </div>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Requisitos</mat-label>
-              <mat-select multiple matNativeControl  [(ngModel)]="courseData.requisitos" name="requirement">
+              <mat-select multiple matNativeControl  [(ngModel)]="courseData.curso[1]" name="requirement">
                 <mat-option *ngFor="let requirement of req" [value]="requirement.idCurso" >{{ requirement.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
@@ -164,7 +164,7 @@
 
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Co-Requisitos</mat-label>
-              <mat-select multiple matNativeControl  [(ngModel)]="courseData.correquisitos" name="coreq">
+              <mat-select multiple matNativeControl  [(ngModel)]="courseData.curso[2]" name="coreq">
                   <mat-option *ngFor="let coreq of cr" [value]="coreq.idCurso">{{ coreq.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
