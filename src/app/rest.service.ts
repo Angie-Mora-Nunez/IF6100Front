@@ -39,6 +39,41 @@ export class RestService {
     catchError(this.handleError<any>("lista de modalidades"))
     );
   }
+  //--------------------------------------------------------------------------------------------
+  getPlanEstudio(): Observable<any> {
+    console.log("sin pasa por el servicio");
+    return this.http.get(endpoint + "planestudio/planesestudio").pipe(map(this.extractData),
+    catchError(this.handleError<any>("lista de planes de estudio"))
+    );
+  }
+//--------------------------------------------------------------------------------------------
+  getContenido(): Observable<any> {
+    console.log("sin pasa por el servicio");
+    return this.http.get(endpoint + "contenido/contenidos").pipe(map(this.extractData),
+    catchError(this.handleError<any>("lista contendios"))
+    );
+  }
+//--------------------------------------------------------------------------------------------
+getEnfasis(): Observable<any> {
+  console.log("sin pasa por el servicio");
+  return this.http.get(endpoint + "enfasis/enfasis").pipe(map(this.extractData),
+  catchError(this.handleError<any>("lista enfasis"))
+  );
+}
+//--------------------------------------------------------------------------------------------
+getItemDescripcion(): Observable<any> {
+  console.log("sin pasa por el servicio");
+  return this.http.get(endpoint + "item/items").pipe(map(this.extractData),
+  catchError(this.handleError<any>("lista item Descri"))
+  );
+}
+//--------------------------------------------------------------------------------------------
+getUnidadesAcademicas(): Observable<any> {
+  console.log("sin pasa por el servicio");
+  return this.http.get(endpoint + "unidadacademica/unidadesacademicas").pipe(map(this.extractData),
+  catchError(this.handleError<any>("lista unidad academicas"))
+  );
+}
 //---------------------------------------------------------------------------------------------------
 getAreaDisciplinaria(): Observable<any> {
   console.log("si pasa por el servicio");
