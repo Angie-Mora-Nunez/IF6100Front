@@ -19,11 +19,7 @@ interface Resultados { // ejemplo
 
 export class GeneralPageComponent implements OnInit {
   selectedCar: string = ''; // ejemplo
-  results: Resultados[] = [ 
-    {idResultadoAprendizaje: '1', descripcion: 'Leer'},
-    {idResultadoAprendizaje: '2', descripcion: 'Bla'},
-    {idResultadoAprendizaje: '3', descripcion: 'Bla bla'},
-  ];
+
 
   @Input() courseData = {sigla: '', nombre: '', creditos: 0, ciclo: '', electivo: true, horasTeoria: 0, horasPractica: 0,horasLaboratorio: 0, 
                           horasTeoricoPractica: 0, objetivoGeneral: '', curso:[ [{"idCurso":2}],  [{"idCurso":3}],  [{"idCurso":4}]], contenido: [{"idContenido":1}], 
@@ -41,16 +37,22 @@ export class GeneralPageComponent implements OnInit {
 
   cont: any = []; //para contendio
   descrip: any = []; //para descripcion
-  refBiblio: any = []; // referencias bibliograficas
+  uniAcade: any = []; // unidad academica
   enf: any = []; //enfasis
+  plE: any = [];
 
 
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
-    //this.getAreaDisciplinaria();
+    this.getAreaDisciplinaria();
     this.getCursos();
     this.getModalidades();
+    this.getPlanesEstudio();
+    this.getContenido();
+    this.getEnfasis();
+    this.getItemDesc();
+    this.getUnidadAcademica();
   }
   modalidadChange(value: string) {
     if (value) {
@@ -94,6 +96,41 @@ export class GeneralPageComponent implements OnInit {
     this.rest.getAreaDisciplinaria().subscribe((data: {}) => {
       console.log(data);
       this.area = data;
+    });
+  }
+  getContenido() {
+    this.cont =  [];
+    this.rest.getContenido().subscribe((data: {}) => {
+      console.log(data);
+      this.cont = data;
+    });
+  }
+  getEnfasis() {
+    this.enf =  [];
+    this.rest.getEnfasis().subscribe((data: {}) => {
+      console.log(data);
+      this.enf = data;
+    });
+  }
+  getItemDesc() {
+    this.descrip =  [];
+    this.rest.getItemDescripcion().subscribe((data: {}) => {
+      console.log(data);
+      this.descrip = data;
+    });
+  }
+  getUnidadAcademica() {
+    this.uniAcade =  [];
+    this.rest.getUnidadesAcademicas().subscribe((data: {}) => {
+      console.log(data);
+      this.uniAcade = data;
+    });
+  }
+  getPlanesEstudio() {
+    this.plE =  [];
+    this.rest.getPlanEstudio().subscribe((data: {}) => {
+      console.log(data);
+      this.plE = data;
     });
   }
   getCursos() {

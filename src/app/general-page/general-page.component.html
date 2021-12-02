@@ -52,17 +52,16 @@
             </div>
             <mat-form-field class="input-size" appearance="outline">
               <mat-label>Sigla</mat-label>
-              <input [(ngModel)]="courseData.sigla" matInput>
+              <input [(ngModel)]="courseData.sigla" required matInput>
             </mat-form-field>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Nombre</mat-label>
-              <input [(ngModel)]="courseData.nombre" matInput>
+              <input [(ngModel)]="courseData.nombre" required matInput>
             </mat-form-field>
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Área disciplinaria</mat-label>
-              <mat-select [(ngModel)]="courseData.areaDisciplinaria.idAreaDisciplinaria" (ngModelChange)="areaChange($event)">
-                <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
-                <mat-option value="1">Disciplina 3</mat-option>
+              <mat-select [(ngModel)]="courseData.areaDisciplinaria" name="aD">
+                <mat-option *ngFor= "let aD of area" [value]="aD.nombreDisciplinaria">{{aD.nombreDisciplinaria}}</mat-option>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline" class="input-size">
@@ -74,9 +73,10 @@
             </mat-form-field>
             <mat-form-field class="input-size" appearance="outline">
               <mat-label>Créditos</mat-label>
-              <input type="number" [(ngModel)]="courseData.creditos" matInput>
+              <input type="number" min="0" [(ngModel)]="courseData.creditos" required matInput>
             </mat-form-field>
           </div>
+
   
         </div>
         <div class="column-half">
@@ -90,24 +90,24 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Unidad(es) académica(s)</mat-label>
               <mat-select  multiple matNativeControl [(ngModel)]="courseData.unidadesAcademicasPropietarias" name="unidad">
-                <mat-option *ngFor="let unidad of results" value="unidad.idResultadoAprendizaje">{{ unidad.descripcion }}</mat-option>
+                <mat-option *ngFor="let unidad of uniAcade" value="unidad.nombreUnidadAcademica">{{ unidad.nombreUnidadAcademica }}</mat-option>
               </mat-select>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
             <mat-label>Horas teoría</mat-label>
-            <input type="number" [(ngModel)]="courseData.horasTeoria" matInput>
+            <input type="number" min="0" [(ngModel)]="courseData.horasTeoria" required matInput>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
             <mat-label>Horas práctica</mat-label>
-            <input type="number" [(ngModel)]="courseData.horasPractica" matInput>
+            <input type="number" min="0" [(ngModel)]="courseData.horasPractica" required matInput>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
             <mat-label>Horas teórico-practicas</mat-label>
-            <input type="number" [(ngModel)]="courseData.horasTeoricoPractica"  matInput>
+            <input type="number" min="0" [(ngModel)]="courseData.horasTeoricoPractica"  matInput>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
             <mat-label>Horas laboratorio</mat-label>
-            <input type="number" [(ngModel)]="courseData.horasLaboratorio" matInput>
+            <input type="number" min="0" [(ngModel)]="courseData.horasLaboratorio" matInput>
           </mat-form-field>
           </div>
   
@@ -137,12 +137,7 @@
           </mat-form-field>
 
 
-          <!--mat-form-field appearance="outline">
-            <mat-label>Descripción</mat-label>
-            <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "r">
-              <mat-option *ngFor="let r of results" [value]="r.idResultadoAprendizaje">{{ r.descripcion }}</mat-option>
-            </mat-select>
-         </mat-form-field-->
+
           <mat-form-field appearance="outline" class="input-size">
             <mat-label>Modalidad</mat-label>
             <mat-select [(ngModel)]="courseData.modalidad.idModalidad"  name="modali">
@@ -173,9 +168,8 @@
 
           <mat-form-field appearance="outline" class="input-size">
             <mat-label>Plan de estudio</mat-label>
-            <mat-select [(ngModel)]="courseData.modalidad.idModalidad" (ngModelChange)="modalidadChange($event)" >
-              <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
-              <mat-option value="1">Virtual</mat-option>
+            <mat-select [(ngModel)]="courseData.planEstudio.idPlanEstudio" name="planEst" >
+              <mat-option *ngFor= "let planEst of plE" [value]="planEst.idPlanEstudio">{{planEst.idPlanEstudio}}</mat-option>
             </mat-select>
           </mat-form-field>
   
@@ -200,7 +194,7 @@
 
               <mat-form-field class="example-full-width">
                 <mat-label>Objetivo general:</mat-label>
-                <textarea [(ngModel)]="courseData.objetivoGeneral" matInput placeholder="Ex. this is example..."></textarea>
+                <textarea [(ngModel)]="courseData.objetivoGeneral" required matInput ></textarea>
               </mat-form-field>
 
             </div>
@@ -215,25 +209,12 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <!--mat-form-field class="example-full-width">
-                <mat-label>Resultados de aprendizaje:</mat-label>
-                <textarea [(ngModel)]="courseData.resultadosDeAprendizaje"  matInput placeholder="Resultados de aprendizaje"></textarea>
-              </mat-form-field-->
-              <mat-form-field appearance="outline" >
-                <mat-label>Resultados</mat-label>
-                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "r">
-                  <mat-option *ngFor="let r of results" [value]="r.idResultadoAprendizaje">{{ r.descripcion }}</mat-option>
-                </mat-select>
-             </mat-form-field>
-            <!--mat-form-field appearance="fill">
-              <mat-label>Favorite car</mat-label>
-              <select matNativeControl [(ngModel)]="selectedCar" name="car">
-                <option value="" selected></option>
-                <option *ngFor="let car of cars" [value]="car.value">
-                  {{car.viewValue}}
-                </option>
-              </select>
-            </mat-form-field-->
+
+             <mat-form-field class="input-size" appearance="outline">
+              <mat-label>Resultados</mat-label>
+              <input [(ngModel)]="courseData.resultadosDeAprendizaje" matInput>
+            </mat-form-field>
+
             </div>
           </div>
         </div>
@@ -246,14 +227,11 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <!--mat-form-field class="example-full-width">
-                <mat-label>Contenido:</mat-label>
-                <textarea  [(ngModel)]="courseData.contenidos" matInput placeholder="Contenido, subtemas"></textarea>
-              </mat-form-field-->
+
               <mat-form-field appearance="outline" >
                 <mat-label>Contenido</mat-label>
-                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "cont">
-                  <mat-option *ngFor="let cont of results" [value]="cont.idResultadoAprendizaje">{{ cont.descripcion }}</mat-option>
+                <mat-select multiple matNativeControl [(ngModel)]="courseData.contenido" name= "conte">
+                  <mat-option *ngFor="let conte of cont" [value]="conte.tema">{{ conte.tema }}</mat-option>
                 </mat-select>
              </mat-form-field>
             </div>
@@ -266,16 +244,12 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <!--mat-form-field class="example-full-width">
-                <mat-label>Referencias Bibliograficas:</mat-label>
-                <textarea [(ngModel)]="courseData.referenciasBibliograficas" matInput placeholder="Bibliografia"></textarea>
-              </mat-form-field-->
-              <mat-form-field appearance="outline" >
-                <mat-label>Referencias bibliográficas</mat-label>
-                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "referencias">
-                  <mat-option *ngFor="let referencias of results" [value]="referencias.idResultadoAprendizaje">{{ referencias.descripcion }}</mat-option>
-                </mat-select>
-             </mat-form-field>
+
+             <mat-form-field class="input-size" appearance="outline">
+              <mat-label>Referencias bibliográficas</mat-label>
+              <input [(ngModel)]="courseData.referenciasBibliograficas" matInput>
+            </mat-form-field>
+            
             </div>
           </div>
         </div>
@@ -289,14 +263,11 @@
                   <i class="tim-icons icon-lock-circle"> </i>
                 </div>
               </div>
-              <!--mat-form-field class="example-full-width">
-                <mat-label>Descripción:</mat-label>
-                <textarea [(ngModel)]="courseData.itemesDescripcion" matInput placeholder="Descripción"></textarea>
-              </mat-form-field-->
+
               <mat-form-field appearance="outline">
                 <mat-label>Descripción</mat-label>
-                <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "descr">
-                  <mat-option *ngFor="let descr of results" [value]="descr.idResultadoAprendizaje">{{ descr.descripcion }}</mat-option>
+                <mat-select multiple matNativeControl [(ngModel)]="courseData.itemDescripcion" name= "descr">
+                  <mat-option *ngFor="let descr of descrip" [value]="descr.idDescripcion">{{ descr.detalleDescripcion }}</mat-option>
                 </mat-select>
              </mat-form-field>
             </div>
@@ -312,14 +283,11 @@
                 <i class="tim-icons icon-lock-circle"> </i>
               </div>
             </div>
-            <!--mat-form-field class="example-full-width">
-              <mat-label>Enfasis:</mat-label>
-              <textarea matInput placeholder="Curso propio"></textarea>
-            </mat-form-field-->
+
             <mat-form-field appearance="outline">
               <mat-label>Énfasis</mat-label>
-              <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "enfasis">
-                <mat-option *ngFor="let enfasis of results" [value]="enfasis.idResultadoAprendizaje">{{ enfasis.descripcion }}</mat-option>
+              <mat-select multiple matNativeControl [(ngModel)]="courseData.planEstudio.enfasis" name= "enfasis">
+                <mat-option *ngFor="let enfasis of enf" [value]="enfasis.idEnfasis">{{ enfasis.descripcion }}</mat-option>
               </mat-select>
            </mat-form-field>
           </div>
@@ -347,112 +315,7 @@
 
   </div>
 
-  <!--div class="item3">
 
-
-    <div id="responsive-form" class="clearfix">
-
-      <div class="form-row">
-      <div class="column-half">
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <i class="tim-icons icon-lock-circle"> </i>
-            </div>
-          </div>
-          <mat-form-field class="input-size" appearance="outline">
-            <mat-label>Sigla</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="input-size">
-            <mat-label>Unidad(es) académica(s)</mat-label>
-            <mat-select formControlName="roles" multiple>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
-              <mat-option value="one">Third option</mat-option>
-            </mat-select>
-        </mat-form-field>
-          <mat-form-field appearance="outline" class="input-size">
-            <mat-label>Área disciplinaria</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="input-size">
-            <mat-label>Ciclo</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="input-size">
-            <mat-label>Créditos</mat-label>
-            <mat-select>
-              <mat-option value="one">First option</mat-option>
-              <mat-option value="two">Second option</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-      </div>
-
-      <div class="column-half">
-        
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <i class="tim-icons icon-lock-circle"> </i>
-            </div>
-          </div>
-          <mat-form-field appearance="outline" class="input-size">
-            <mat-label>Nombre</mat-label>
-            <input matInput>
-          </mat-form-field>
-        <mat-form-field appearance="outline" class="input-size">
-          <mat-label>Horas teoría</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline"  class="input-size">
-          <mat-label>Horas práctica</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline"  class="input-size">
-          <mat-label>Horas teórico-practicas</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="input-size">
-          <mat-label>Horas laboratorio</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-        </div>
-
-      </div>
-      </div>
-
-      
-      <div class="form-row">
-       <div class="column-half"><button class="button button1" [routerLink]="['/requirement']" mat-menu-item >Siguiente</button>
-       </div>
-       <div class="column-half"><button class="button button2" [routerLink]="['/courses']" mat-menu-item >Regresar</button>
-       </div>
-      </div>
-      
-  </div>   
-</div-->  
 
 </div>
 
