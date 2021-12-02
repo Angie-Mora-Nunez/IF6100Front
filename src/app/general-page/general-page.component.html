@@ -135,6 +135,8 @@
                 <mat-option *ngFor="let requirement of req" [value]="requirement.idCurso" >{{ requirement.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
+
+
           <!--mat-form-field appearance="outline">
             <mat-label>Descripción</mat-label>
             <mat-select multiple matNativeControl [(ngModel)]="selectedCar" name= "r">
@@ -143,9 +145,8 @@
          </mat-form-field-->
           <mat-form-field appearance="outline" class="input-size">
             <mat-label>Modalidad</mat-label>
-            <mat-select [(ngModel)]="courseData.modalidad.idModalidad" (ngModelChange)="modalidadChange($event)" >
-              <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
-              <mat-option value="1">Virtual</mat-option>
+            <mat-select [(ngModel)]="courseData.modalidad.idModalidad"  name="modali">
+              <mat-option *ngFor= "let modali of mod" [value]="modali.tipoModalidad">{{modali.tipoModalidad}}</mat-option>
             </mat-select>
           </mat-form-field>
           </div>
@@ -163,14 +164,20 @@
 
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Co-Requisitos</mat-label>
-              <mat-select multiple matNativeControl  [(ngModel)]="courseData.correquisitos" (ngModelChange)="coreqChange($event)">
-                <mat-option value="1">First option</mat-option>
-                <mat-option value="2">Second option</mat-option>
-                <mat-option value="3">Third option</mat-option>
-                  <!--mat-option *ngFor="let coreq of results" [value]="coreq.idResultadoAprendizaje">{{ coreq.descripcion }}</mat-option-->
+              <mat-select multiple matNativeControl  [(ngModel)]="courseData.correquisitos" name="coreq">
+                  <mat-option *ngFor="let coreq of cr" [value]="coreq.idCurso">{{ coreq.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
           </div>
+
+
+          <mat-form-field appearance="outline" class="input-size">
+            <mat-label>Plan de estudio</mat-label>
+            <mat-select [(ngModel)]="courseData.modalidad.idModalidad" (ngModelChange)="modalidadChange($event)" >
+              <!--option *ngFor= "let a of showCommen" [value]="a.tipoModalidad">{{a.tipoModalidad}}</option-->
+              <mat-option value="1">Virtual</mat-option>
+            </mat-select>
+          </mat-form-field>
   
         </div>
         </div>       

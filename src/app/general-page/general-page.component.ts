@@ -26,25 +26,31 @@ export class GeneralPageComponent implements OnInit {
   ];
 
   @Input() courseData = {sigla: '', nombre: '', creditos: 0, ciclo: '', electivo: true, horasTeoria: 0, horasPractica: 0,horasLaboratorio: 0, 
-                          horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenido: [{"idContenido":1}], 
-                          itemDescripcion: [{"idDescripcion": 1}], referenciasBibliograficas: [{"referencia":"ejemplo"}], resultadosDeAprendizaje: [{"descripcion":"ejemplo"},{"descripcion":"ejemplo2"}],
+                          horasTeoricoPractica: 0, objetivoGeneral: '', electivos: [], requisitos: [], correquisitos: [], contenido: [], 
+                          itemDescripcion: [], referenciasBibliograficas: [{"referencia":"ejemplo"}], resultadosDeAprendizaje: [{"descripcion":"ejemplo"},{"descripcion":"ejemplo2"}],
                           modalidad: {idModalidad: 0, "tipoModalidad": "Virtual","cursos": []},
                           areaDisciplinaria: {idAreaDisciplinaria: 0, "nombreDisciplinaria": "a", "cursos": []},
-                          enfasis: [{"idEnfasis": 1}], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
-                          unidadesAcademicasPropietarias: [{"idUnidadAcademica": 1}]};
+                          enfasis: [], planEstudio: {"idPlanEstudio":1,"anoAprobacion": 2020, "cantidadCiclos":3,"codigoCarrera":20000,"duracionAnos":3,"nombreCarrera": "Carrera test","cursos":[],"enfasis":[], "unidadesAcademicasPropietarias":[], "itemesPerfilEntrada":[],"itemesPerfilSalida":[],"grado":{"idGrado": 1, "nombre":"gradoTest","totalCreditosMaximo":2,"totalCreditosMinimo":1,"planesEstudio":[]}}, 
+                          unidadesAcademicasPropietarias: []};
   
   issue: any;
-  showCommen: any = [];
+  mod: any = []; //antes era showComen
   req: any = [];
+  cr: any = [];
   area: any = [];
+
+  cont: any = []; //para contendio
+  descrip: any = []; //para descripcion
+  refBiblio: any = []; // referencias bibliograficas
+  enf: any = []; //enfasis
 
 
   constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(){
     //this.getAreaDisciplinaria();
-    //this.getCursos();
-    //this.getModalidades();
+    this.getCursos();
+    this.getModalidades();
   }
   modalidadChange(value: string) {
     if (value) {
@@ -77,10 +83,10 @@ export class GeneralPageComponent implements OnInit {
     });
   }
   getModalidades() {
-    this.showCommen = [];
+    this.mod = [];
     this.rest.getModalidad().subscribe((data: {}) => {
       console.log(data);
-      this.showCommen = data;
+      this.mod = data;
     });
   }
   getAreaDisciplinaria() {
@@ -92,9 +98,11 @@ export class GeneralPageComponent implements OnInit {
   }
   getCursos() {
     this.req = [];
+    this.cr = [];
     this.rest.getCursos().subscribe((data: {}) => {
       console.log(data);
       this.req = data;
+      this.cr = data;
     });
   }
   cancel() {
