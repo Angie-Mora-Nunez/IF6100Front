@@ -34,49 +34,49 @@ export class RestService {
   }
 
   getModalidad(): Observable<any> {
-    console.log("sin pasa por el servicio");
+    
     return this.http.get(endpoint + "modalidad/modalidades").pipe(map(this.extractData),
     catchError(this.handleError<any>("lista de modalidades"))
     );
   }
   //--------------------------------------------------------------------------------------------
   getPlanEstudio(): Observable<any> {
-    console.log("sin pasa por el servicio");
+    
     return this.http.get(endpoint + "planestudio/planesestudio").pipe(map(this.extractData),
     catchError(this.handleError<any>("lista de planes de estudio"))
     );
   }
 //--------------------------------------------------------------------------------------------
   getContenido(): Observable<any> {
-    console.log("sin pasa por el servicio");
+    
     return this.http.get(endpoint + "contenido/contenidos").pipe(map(this.extractData),
-    catchError(this.handleError<any>("lista contendios"))
+    catchError(this.handleError<any>("lista contenidos"))
     );
   }
 //--------------------------------------------------------------------------------------------
 getEnfasis(): Observable<any> {
-  console.log("sin pasa por el servicio");
+  
   return this.http.get(endpoint + "enfasis/enfasis").pipe(map(this.extractData),
   catchError(this.handleError<any>("lista enfasis"))
   );
 }
 //--------------------------------------------------------------------------------------------
 getItemDescripcion(): Observable<any> {
-  console.log("sin pasa por el servicio");
+ 
   return this.http.get(endpoint + "item/items").pipe(map(this.extractData),
-  catchError(this.handleError<any>("lista item Descri"))
+  catchError(this.handleError<any>("lista itemes Descripcion"))
   );
 }
 //--------------------------------------------------------------------------------------------
 getUnidadesAcademicas(): Observable<any> {
-  console.log("sin pasa por el servicio");
+  
   return this.http.get(endpoint + "unidadacademica/unidadesacademicas").pipe(map(this.extractData),
-  catchError(this.handleError<any>("lista unidad academicas"))
+  catchError(this.handleError<any>("lista unidades academicas"))
   );
 }
 //---------------------------------------------------------------------------------------------------
 getAreaDisciplinaria(): Observable<any> {
-  console.log("si pasa por el servicio");
+  
   return this.http.get(endpoint + "areadisciplinaria/areasdisciplinarias").pipe(map(this.extractData),
   catchError(this.handleError<any>("lista de areas disciplinarias"))
   );
@@ -91,9 +91,9 @@ addCurso(curso: Curso): Observable<any> {
 
 //---------------------------------------------------------------------------------------------------
 getCursos(): Observable<any> {
-  console.log("si pasa");
+  
   return this.http.get(endpoint + "curso/cursos").pipe(map(this.extractData),
-  catchError(this.handleError<any>("lista de areas disciplinarias"))
+  catchError(this.handleError<any>("lista de cursos"))
   );
 }
 //---------------------------------------------------------------------------------------------------

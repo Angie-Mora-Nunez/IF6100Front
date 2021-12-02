@@ -50,6 +50,7 @@
                 <i class="tim-icons icon-lock-circle"> </i>
               </div>
             </div>
+
             <mat-form-field class="input-size" appearance="outline">
               <mat-label>Sigla</mat-label>
               <input [(ngModel)]="courseData.sigla" required matInput>
@@ -61,9 +62,10 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Área disciplinaria</mat-label>
               <mat-select [(ngModel)]="courseData.areaDisciplinaria" name="aD">
-                <mat-option *ngFor= "let aD of area" [value]="aD.nombreDisciplinaria">{{aD.nombreDisciplinaria}}</mat-option>
+                <mat-option *ngFor= "let aD of area" [value]="aD">{{aD.nombreDisciplinaria}}</mat-option>
               </mat-select>
             </mat-form-field>
+            
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Ciclo</mat-label>
               <mat-select [(ngModel)]="courseData.ciclo" >
@@ -90,7 +92,7 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Unidad(es) académica(s)</mat-label>
               <mat-select  multiple matNativeControl [(ngModel)]="courseData.unidadesAcademicasPropietarias" name="unidad">
-                <mat-option *ngFor="let unidad of uniAcade" value="unidad.nombreUnidadAcademica">{{ unidad.nombreUnidadAcademica }}</mat-option>
+                <mat-option *ngFor="let unidad of uniAcade" [value]="unidad">{{ unidad.nombreUnidadAcademica }}</mat-option>
               </mat-select>
           </mat-form-field>
           <mat-form-field class="input-size" appearance="outline">
@@ -132,7 +134,7 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Requisitos</mat-label>
               <mat-select multiple matNativeControl  [(ngModel)]="courseData.curso[1]" name="requirement">
-                <mat-option *ngFor="let requirement of req" [value]="requirement.idCurso" >{{ requirement.nombre }}</mat-option>
+                <mat-option *ngFor="let requirement of req" [value]="requirement" >{{ requirement.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
 
@@ -140,8 +142,8 @@
 
           <mat-form-field appearance="outline" class="input-size">
             <mat-label>Modalidad</mat-label>
-            <mat-select [(ngModel)]="courseData.modalidad.idModalidad"  name="modali">
-              <mat-option *ngFor= "let modali of mod" [value]="modali.tipoModalidad">{{modali.tipoModalidad}}</mat-option>
+            <mat-select [(ngModel)]="courseData.modalidad"  name="modali">
+              <mat-option *ngFor= "let modali of mod" [value]="modali">{{modali.tipoModalidad}}</mat-option>
             </mat-select>
           </mat-form-field>
           </div>
@@ -160,7 +162,7 @@
             <mat-form-field appearance="outline" class="input-size">
               <mat-label>Co-Requisitos</mat-label>
               <mat-select multiple matNativeControl  [(ngModel)]="courseData.curso[2]" name="coreq">
-                  <mat-option *ngFor="let coreq of cr" [value]="coreq.idCurso">{{ coreq.nombre }}</mat-option>
+                  <mat-option *ngFor="let coreq of cr" [value]="coreq">{{ coreq.nombre }}</mat-option>
               </mat-select>
           </mat-form-field>
           </div>
@@ -168,8 +170,8 @@
 
           <mat-form-field appearance="outline" class="input-size">
             <mat-label>Plan de estudio</mat-label>
-            <mat-select [(ngModel)]="courseData.planEstudio.idPlanEstudio" name="planEst" >
-              <mat-option *ngFor= "let planEst of plE" [value]="planEst.idPlanEstudio">{{planEst.idPlanEstudio}}</mat-option>
+            <mat-select [(ngModel)]="courseData.planEstudio" name="planEst" >
+              <mat-option *ngFor= "let planEst of plE" [value]="planEst">{{planEst.nombreCarrera}}</mat-option>
             </mat-select>
           </mat-form-field>
   
@@ -212,7 +214,7 @@
 
              <mat-form-field class="input-size" appearance="outline">
               <mat-label>Resultados</mat-label>
-              <input [(ngModel)]="courseData.resultadosDeAprendizaje" matInput>
+              <input [(ngModel)]="courseData.resultadosDeAprendizaje[0].descripcion" matInput>
             </mat-form-field>
 
             </div>
@@ -231,7 +233,7 @@
               <mat-form-field appearance="outline" >
                 <mat-label>Contenido</mat-label>
                 <mat-select multiple matNativeControl [(ngModel)]="courseData.contenido" name= "conte">
-                  <mat-option *ngFor="let conte of cont" [value]="conte.tema">{{ conte.tema }}</mat-option>
+                  <mat-option *ngFor="let conte of cont" [value]="conte">{{ conte.tema }}</mat-option>
                 </mat-select>
              </mat-form-field>
             </div>
@@ -247,7 +249,7 @@
 
              <mat-form-field class="input-size" appearance="outline">
               <mat-label>Referencias bibliográficas</mat-label>
-              <input [(ngModel)]="courseData.referenciasBibliograficas" matInput>
+              <input [(ngModel)]="courseData.referenciasBibliograficas[0].referencia" matInput>
             </mat-form-field>
             
             </div>
@@ -267,7 +269,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Descripción</mat-label>
                 <mat-select multiple matNativeControl [(ngModel)]="courseData.itemDescripcion" name= "descr">
-                  <mat-option *ngFor="let descr of descrip" [value]="descr.idDescripcion">{{ descr.detalleDescripcion }}</mat-option>
+                  <mat-option *ngFor="let descr of descrip" [value]="descr">{{ descr.detalleDescripcion }}</mat-option>
                 </mat-select>
              </mat-form-field>
             </div>
@@ -287,7 +289,7 @@
             <mat-form-field appearance="outline">
               <mat-label>Énfasis</mat-label>
               <mat-select multiple matNativeControl [(ngModel)]="courseData.planEstudio.enfasis" name= "enfasis">
-                <mat-option *ngFor="let enfasis of enf" [value]="enfasis.idEnfasis">{{ enfasis.descripcion }}</mat-option>
+                <mat-option *ngFor="let enfasis of enf" [value]="enfasis">{{ enfasis.descripcion }}</mat-option>
               </mat-select>
            </mat-form-field>
           </div>
